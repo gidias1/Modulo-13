@@ -10,7 +10,7 @@ pipeline {
 
         stage('Instalar dependências') {
             steps {
-                dir('test-api') {
+                dir('test-api/api-tests') {
                     bat 'npm install'
                 }
             }
@@ -18,11 +18,10 @@ pipeline {
 
         stage('Executar testes de API') {
             steps {
-                dir('test-api') {
+                dir('test-api/api-tests') {
                     bat 'npx mocha test/**/*.js'
                 }
             }
         }
     }
 }
-
